@@ -114,6 +114,13 @@ border:none;
 background:#3d2c6c;
 position:relative;
 cursor:pointer;
+transition:transform 0.1s ease;
+
+}
+
+.count-btn.clicked{
+
+transform:scale(0.95);
 
 }
 
@@ -127,6 +134,13 @@ border-radius:50%;
 position:absolute;
 right:5px;
 top:5px;
+transition:transform 0.3s ease;
+
+}
+
+.count-btn.clicked .circle{
+
+transform:translateX(-60px);
 
 }
 
@@ -151,6 +165,20 @@ border-radius:10px;
 background:white;
 color:#6c4bbd;
 cursor:pointer;
+transition:all 0.3s ease;
+
+}
+
+.control-btn:active{
+
+transform:scale(0.95);
+
+}
+
+.control-btn.paused{
+
+background:#6c4bbd;
+color:white;
 
 }
 

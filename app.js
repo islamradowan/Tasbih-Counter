@@ -14,6 +14,11 @@ countBtn.addEventListener("click", () => {
   }
   counter++;
   count.textContent = counter.toString().padStart(3, "0");
+  saveCounter();
+
+  // Toggle animation
+  countBtn.classList.add("clicked");
+  setTimeout(() => countBtn.classList.remove("clicked"), 300);
 });
 
 // TASK 3:
@@ -43,9 +48,11 @@ pauseBtn.addEventListener("click", () => {
   if (isPaused === false) {
     isPaused = true;
     clearInterval(timer);
+    pauseBtn.classList.add("paused");
   } else {
     isPaused = false;
     startTimer();
+    pauseBtn.classList.remove("paused");
   }
 });
 
@@ -59,6 +66,7 @@ stopBtn.addEventListener("click", () => {
   hour.textContent = "00";
   minute.textContent = "00";
   second.textContent = "00";
+  pauseBtn.classList.remove("paused");
 });
 
 // TASK 6:
@@ -72,13 +80,15 @@ resetBtn.addEventListener("click", () => {
   hour.textContent = "00";
   minute.textContent = "00";
   second.textContent = "00";
-  count.textContent = "00";
+  count.textContent = "000";
+  pauseBtn.classList.remove("paused");
+  saveCounter();
 });
 
 // TASK 7:
 // Save counter in localStorage
 function saveCounter() {
-  localStorage.setItem("counter", counter);
+  localStorage.setItem("counter", counter.toString() || "0");
 }
 
 // TASK 8:
@@ -90,3 +100,6 @@ function loadCounter() {
     count.textContent = counter.toString().padStart(3, "0");
   }
 }
+
+// Initialize
+loadCounter();
