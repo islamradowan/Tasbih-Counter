@@ -28,15 +28,19 @@ const hour = document.getElementById("hours");
 const minute = document.getElementById("minutes");
 const second = document.getElementById("seconds");
 
+function updateTimerDisplay() {
+  const hours = Math.floor(secCount / 3600);
+  const minutes = Math.floor((secCount % 3600) / 60);
+  const seconds = secCount % 60;
+  hour.textContent = hours.toString().padStart(2, "0");
+  minute.textContent = minutes.toString().padStart(2, "0");
+  second.textContent = seconds.toString().padStart(2, "0");
+}
+
 function startTimer() {
   timer = setInterval(() => {
     secCount++;
-    const hours = Math.floor(secCount / 3600);
-    const minutes = Math.floor((secCount % 3600) / 60);
-    const seconds = secCount % 60;
-    hour.textContent = hours.toString().padStart(2, "0");
-    minute.textContent = minutes.toString().padStart(2, "0");
-    second.textContent = seconds.toString().padStart(2, "0");
+    updateTimerDisplay();
   }, 1000);
 }
 
@@ -63,10 +67,7 @@ stopBtn.addEventListener("click", () => {
   clearInterval(timer);
   timer = 0;
   secCount = 0;
-  hour.textContent = "00";
-  minute.textContent = "00";
-  second.textContent = "00";
-  pauseBtn.classList.remove("paused");
+  updateTimerDisplay();
 });
 
 // TASK 6:
@@ -77,11 +78,8 @@ resetBtn.addEventListener("click", () => {
   timer = 0;
   secCount = 0;
   counter = 0;
-  hour.textContent = "00";
-  minute.textContent = "00";
-  second.textContent = "00";
-  count.textContent = "000";
-  pauseBtn.classList.remove("paused");
+  updateTimerDisplay();
+  count.textContent = counter.toString().padStart(3, "0");
   saveCounter();
 });
 
