@@ -61,8 +61,7 @@ cursor:pointer;
 margin:15px;
 padding:20px;
 border-radius:20px;
-background:linear-gradient(rgba(108,75,189,0.8),rgba(108,75,189,0.8)),
-url("tasbih.jpg");
+background:linear-gradient(rgba(108,75,189,0.8),rgba(108,75,189,0.8));
 
 background-size:cover;
 color:white;
@@ -114,13 +113,6 @@ border:none;
 background:#3d2c6c;
 position:relative;
 cursor:pointer;
-transition:transform 0.1s ease;
-
-}
-
-.count-btn.clicked{
-
-transform:scale(0.95);
 
 }
 
@@ -134,13 +126,6 @@ border-radius:50%;
 position:absolute;
 right:5px;
 top:5px;
-transition:transform 0.3s ease;
-
-}
-
-.count-btn.clicked .circle{
-
-transform:translateX(-60px);
 
 }
 
@@ -165,20 +150,6 @@ border-radius:10px;
 background:white;
 color:#6c4bbd;
 cursor:pointer;
-transition:all 0.3s ease;
-
-}
-
-.control-btn:active{
-
-transform:scale(0.95);
-
-}
-
-.control-btn.paused{
-
-background:#6c4bbd;
-color:white;
 
 }
 
@@ -210,23 +181,6 @@ border-radius:10px;
 cursor:pointer;
 
 }
-
-
-.theme1{
-
-background:url("theme1.jpg");
-background-size:cover;
-
-}
-
-
-.theme2{
-
-background:url("theme2.jpg");
-background-size:cover;
-
-}
-
 
 
 
